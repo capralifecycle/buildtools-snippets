@@ -4,6 +4,7 @@
 @Library('cals') _
 
 def tests = [
+  'tools/docker/install-alpine.test.Dockerfile',
   'tools/sonar-scanner/install-alpine.test.Dockerfile',
 ]
 

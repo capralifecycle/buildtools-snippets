@@ -35,10 +35,69 @@ replace_var() {
   sed -i "s/^\($name=\)\(.\+\)/\1$value/" "$file"
 }
 
+check() {
+  file=$1
+  name=$2
+  candidate=$3
+
+  current=$(extract_var $file $name)
+
+  verify_version_newer_or_latest "$current" "$candidate"
+
+  if [ "$current" != "$candidate" ]; then
+    echo "Update available: $file $current -> $candidate"
+    if [ "$execute" = true ]; then
+      replace_var $file $name "$candidate"
+    fi
+    updates+=1
+  fi
+}
+
+get_docker_versions() {
+  # Copied from https://github.com/docker-library/docker/blob/cbb0ee05d8be7b73d6b482c4a602be137e108f77/update.sh
+  git ls-remote --tags https://github.com/docker/docker-ce.git \
+    | cut -d$'\t' -f2 \
+    | grep '^refs/tags/v[0-9].*$' \
+    | sed 's!^refs/tags/v!!; s!\^{}$!!' \
+    | sort -u \
+    | gawk '
+      { data[lines++] = $0 }
+      # "beta" sorts lower than "tp" even though "beta" is a more preferred release, so we need to explicitly adjust the sorting order for RCs
+      # also, "18.09.0-ce-beta1" vs "18.09.0-beta3"
+      function docker_version_compare(i1, v1, i2, v2, l, r) {
+        l = v1; gsub(/-ce/, "", l); gsub(/-tp/, "-alpha", l)
+        r = v2; gsub(/-ce/, "", r); gsub(/-tp/, "-alpha", r)
+        patsplit(l, ltemp, /[^.-]+/)
+        patsplit(r, rtemp, /[^.-]+/)
+        for (i = 0; i < length(ltemp) && i < length(rtemp); ++i) {
+          if (ltemp[i] < rtemp[i]) {
+            return -1
+          }
+          if (ltemp[i] > rtemp[i]) {
+            return 1
+          }
+        }
+        return 0
+      }
+      END {
+        asort(data, result, "docker_version_compare")
+        for (i in result) {
+          print result[i]
+        }
+      }
+    '
+}
+
+check_docker() {
+  echo "Checking docker"
+  docker_versions="$(get_docker_versions)"
+  candidate=$(echo "$docker_versions" | grep '^[0-9\.]\+$' | tail -n 1)
+
+  check tools/docker/install-alpine.sh DOCKER_VERSION "$candidate"
+}
+
 check_sonar_scanner() {
   echo "Checking sonar-scanner"
-
-  current=$(extract_var tools/sonar-scanner/install-alpine.sh SONAR_SCANNER_VERSION)
   candidate=$(curl -s https://api.github.com/repos/SonarSource/sonar-scanner-cli/tags | jq -r '.[0].name')
 
   # Verify valid tag as version.
@@ -47,17 +106,10 @@ check_sonar_scanner() {
     exit 1
   fi
 
-  verify_version_newer_or_latest "$current" "$candidate"
-
-  if [ "$current" != "$candidate" ]; then
-    echo "Update available: sonar-scanner $current -> $candidate"
-    if [ "$execute" = true ]; then
-      replace_var tools/sonar-scanner/install-alpine.sh SONAR_SCANNER_VERSION "$candidate"
-    fi
-    updates+=1
-  fi
+  check tools/sonar-scanner/install-alpine.sh SONAR_SCANNER_VERSION "$candidate"
 }
 
+check_docker
 check_sonar_scanner
 
 if [ $updates -eq 0 ]; then
