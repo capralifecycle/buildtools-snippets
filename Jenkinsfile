@@ -34,5 +34,16 @@ buildConfig([
     }
   }
 
+  branches['update-check'] = {
+    dockerNode {
+      checkout scm
+
+      def img = docker.build('buildtools-snippets')
+      img.inside {
+        sh './check-updates.sh'
+      }
+    }
+  }
+
   parallel branches
 }
