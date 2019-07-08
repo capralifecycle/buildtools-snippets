@@ -96,6 +96,31 @@ check_docker() {
   check tools/docker/install-alpine.sh DOCKER_VERSION "$candidate"
 }
 
+check_maven_3() {
+  echo "Checking maven-3"
+
+  candidate=$(
+    git ls-remote --tags https://github.com/apache/maven.git \
+      | cut -d$'\t' -f2 \
+      | grep '^refs/tags/maven-[0-9\.]\+$' \
+      | sed 's!^refs/tags/maven-!!; s!\^{}$!!' \
+      | sort -V \
+      | tail -n 1
+  )
+
+  p=$updates
+  check tools/maven-3/install.sh MAVEN_VERSION "$candidate"
+
+  # Also update the SHA512.
+  if [ $p -ne $updates ] && [ "$execute" = true ]; then
+    sha=$(
+      curl -sL https://www.apache.org/dist/maven/maven-3/$candidate/binaries/apache-maven-$candidate-bin.tar.gz.sha512 \
+        | awk '{ print $1 }'
+    )
+    replace_var tools/maven-3/install.sh SHA "$sha"
+  fi
+}
+
 check_sonar_scanner() {
   echo "Checking sonar-scanner"
   candidate=$(curl -s https://api.github.com/repos/SonarSource/sonar-scanner-cli/tags | jq -r '.[0].name')
@@ -110,6 +135,7 @@ check_sonar_scanner() {
 }
 
 check_docker
+check_maven_3
 check_sonar_scanner
 
 if [ $updates -eq 0 ]; then
