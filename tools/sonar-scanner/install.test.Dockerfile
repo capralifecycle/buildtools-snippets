@@ -23,8 +23,7 @@ RUN sonar-scanner --version
 # Ensuring the url still works.
 # Note: This will break only after merging!
 # Tip: Copy the RUN command to another Dockerfile to include it.
-# TODO: Enable after merged.
-#FROM alpine
-#RUN set -ex; \
-#    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/master/tools/sonar-scanner/install.sh -O- | sh; \
-#    sonar-scanner --version
+FROM alpine
+RUN set -ex; \
+    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/master/tools/sonar-scanner/install.sh -O- | sh; \
+    sonar-scanner --version
