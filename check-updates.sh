@@ -132,6 +132,7 @@ check_sonar_scanner() {
   fi
 
   check tools/sonar-scanner/install-alpine.sh SONAR_SCANNER_VERSION "$candidate"
+  check tools/sonar-scanner/install.sh SONAR_SCANNER_VERSION "$candidate"
 }
 
 check_docker
