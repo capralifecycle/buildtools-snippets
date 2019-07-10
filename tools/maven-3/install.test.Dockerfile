@@ -25,5 +25,7 @@ FROM azul/zulu-openjdk-alpine:11
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "/home/jenkins/.m2"
 RUN set -ex; \
-    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/master/tools/maven-3/install.sh -O- | sh; \
+    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/master/tools/maven-3/install.sh -O /tmp/script.sh; \
+    sh /tmp/script.sh; \
+    rm /tmp/script.sh; \
     mvn -version
