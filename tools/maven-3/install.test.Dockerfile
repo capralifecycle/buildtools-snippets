@@ -20,12 +20,14 @@ RUN mvn -version
 
 # Ensuring the url still works.
 # Note: This will break only after merging!
-# Tip: Copy the ENV and RUN command to another Dockerfile to include it.
+# Tip: Copy the ENV and RUN command to another Dockerfile to include it,
+# but change ${BRANCH} to master.
 FROM azul/zulu-openjdk-alpine:11
+ARG BRANCH
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "/home/jenkins/.m2"
 RUN set -ex; \
-    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/master/tools/maven-3/install.sh -O /tmp/script.sh; \
+    wget https://raw.githubusercontent.com/capralifecycle/buildtools-snippets/${BRANCH}/tools/maven-3/install.sh -O /tmp/script.sh; \
     sh /tmp/script.sh; \
     rm /tmp/script.sh; \
     mvn -version

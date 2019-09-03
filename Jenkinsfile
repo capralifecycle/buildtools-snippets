@@ -32,7 +32,7 @@ buildConfig([
     branches[dockerfile] = {
       dockerNode {
         checkout scm
-        sh "docker build --no-cache -f $dockerfile ."
+        sh "docker build --no-cache --build-arg BRANCH=\"$BRANCH_NAME\" -f $dockerfile ."
       }
     }
   }
