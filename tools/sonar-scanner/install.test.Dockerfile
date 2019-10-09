@@ -20,8 +20,7 @@ COPY tools/sonar-scanner/install.sh /install.sh
 RUN /install.sh
 RUN sonar-scanner --version
 
-# Ensuring the url still works.
-# Note: This will break only after merging!
+# Ensuring the direct url works.
 # Tip: Copy the RUN command to another Dockerfile to include it,
 # but change ${BRANCH} to master.
 FROM alpine

@@ -18,8 +18,7 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "/home/jenkins/.m2"
 RUN mvn -version
 
-# Ensuring the url still works.
-# Note: This will break only after merging!
+# Ensuring the direct url works.
 # Tip: Copy the ENV and RUN command to another Dockerfile to include it,
 # but change ${BRANCH} to master.
 FROM azul/zulu-openjdk-alpine:11
