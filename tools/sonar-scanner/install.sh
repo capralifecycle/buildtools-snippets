@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eux
 
-SONAR_SCANNER_VERSION=4.0.0.1744
+SONAR_SCANNER_VERSION=4.2.0.1873
 
 url=https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip
 
