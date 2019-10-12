@@ -19,3 +19,12 @@ pushed to `master`.
 * The snippet is added to `Jenkinsfile` to be tested
 * Any dependencies in the snippets is added to `check-updates.sh`
 * Tests verify behaviour similar to other tests
+
+## Future metrics collection and external usage
+
+To be able to manage a deprecation lifecycle we might add metrics to the
+snippets later so that we can monitor its use, and migrate away and remove
+deprecated snippets.
+
+The snippets in this repo is typically for internal use only, and we do not
+promise any compatibility for any external consumers.
