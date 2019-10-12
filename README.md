@@ -13,3 +13,9 @@ pushed to `master`.
 ## TODO
 
 * Automate updates (commit, test, merge)
+
+## Checklist when adding snippets
+
+* The snippet is added to `Jenkinsfile` to be tested
+* Any dependencies in the snippets is added to `check-updates.sh`
+* Tests verify behaviour similar to other tests
