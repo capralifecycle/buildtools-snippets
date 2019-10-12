@@ -1,6 +1,13 @@
 #!/bin/sh
 set -eux
 
+echo "########################################################################"
+echo "##                                                                    ##"
+echo "##  You are using the deprecated install-alpine.sh for sonar-scanner  ##"
+echo "##  which should be changed to install.sh                             ##"
+echo "##                                                                    ##"
+echo "########################################################################"
+
 # reference: https://github.com/docker-library/docker/blob/cbb0ee05d8be7b73d6b482c4a602be137e108f77/18.09/Dockerfile
 
 DOCKER_CHANNEL=stable

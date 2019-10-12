@@ -94,6 +94,7 @@ check_docker() {
   candidate=$(echo "$docker_versions" | grep '^[0-9\.]\+$' | tail -n 1)
 
   check tools/docker/install-alpine.sh DOCKER_VERSION "$candidate"
+  check tools/docker/install.sh DOCKER_VERSION "$candidate"
 }
 
 check_maven_3() {
