@@ -5,6 +5,7 @@ set -eux
 
 # reference: https://github.com/carlossg/docker-maven/blob/966c1657b1629cdb547692ac8e48b491a9961892/jdk-11/Dockerfile
 
+# See check-updates.sh.
 MAVEN_VERSION=3.6.3
 SHA=c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0
 BASE_URL=http://apache.uib.no/maven/maven-3/${MAVEN_VERSION}/binaries

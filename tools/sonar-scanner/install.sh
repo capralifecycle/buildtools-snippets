@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eux
 
+# See check-updates.sh.
 SONAR_SCANNER_VERSION=4.2.0.1873
 
 url=https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip
