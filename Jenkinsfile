@@ -13,6 +13,9 @@ def tests = [
 
 def jobProperties = []
 
+// Get correct branch name for PRs.
+def branch = env.CHANGE_BRANCH ?: env.BRANCH_NAME
+
 if (env.BRANCH_NAME == 'master') {
   jobProperties << pipelineTriggers([
     // Build a new version every night so we keep up to date with upstream changes
@@ -33,7 +36,7 @@ buildConfig([
     branches[dockerfile] = {
       dockerNode {
         checkout scm
-        sh "docker build --no-cache --build-arg BRANCH=\"$BRANCH_NAME\" -f $dockerfile ."
+        sh "docker build --no-cache --build-arg BRANCH=\"$branch\" -f $dockerfile ."
       }
     }
   }
