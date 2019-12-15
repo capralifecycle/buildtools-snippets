@@ -11,7 +11,7 @@ echo "########################################################################"
 # reference: https://github.com/docker-library/docker/blob/cbb0ee05d8be7b73d6b482c4a602be137e108f77/18.09/Dockerfile
 
 DOCKER_CHANNEL=stable
-DOCKER_VERSION=19.03.3
+DOCKER_VERSION=19.03.5
 dockerArch=x86_64
 
 if ! wget -O docker.tgz "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/${dockerArch}/docker-${DOCKER_VERSION}.tgz"; then

@@ -5,8 +5,8 @@ set -eux
 
 # reference: https://github.com/carlossg/docker-maven/blob/966c1657b1629cdb547692ac8e48b491a9961892/jdk-11/Dockerfile
 
-MAVEN_VERSION=3.6.2
-SHA=d941423d115cd021514bfd06c453658b1b3e39e6240969caf4315ab7119a77299713f14b620fb2571a264f8dff2473d8af3cb47b05acf0036fc2553199a5c1ee
+MAVEN_VERSION=3.6.3
+SHA=c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0
 BASE_URL=http://apache.uib.no/maven/maven-3/${MAVEN_VERSION}/binaries
 
 mkdir -p /usr/share/maven /usr/share/maven/ref
