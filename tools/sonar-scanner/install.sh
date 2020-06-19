@@ -7,7 +7,7 @@ SONAR_SCANNER_VERSION=4.3.0.2102
 if [ -e /etc/alpine-release ]; then
   # Alpine cannot use the bundled java version, so we install java if not available.
   if ! which java >/dev/null; then
-    apk add --no-cache openjdk8-jre
+    apk add --no-cache openjdk11-jre
   fi
 else
   if ! which java >/dev/null; then
