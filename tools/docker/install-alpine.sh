@@ -12,7 +12,7 @@ echo "########################################################################"
 
 # See check-updates.sh.
 DOCKER_CHANNEL=stable
-DOCKER_VERSION=19.03.5
+DOCKER_VERSION=19.03.11
 dockerArch=x86_64
 
 if ! wget -O docker.tgz "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/${dockerArch}/docker-${DOCKER_VERSION}.tgz"; then
