@@ -4,8 +4,6 @@ set -eux
 # See check-updates.sh.
 SONAR_SCANNER_VERSION=4.3.0.2102
 
-url=https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip
-
 if [ -e /etc/alpine-release ]; then
   # Alpine cannot use the bundled java version, so we install java if not available.
   if ! which java >/dev/null; then
