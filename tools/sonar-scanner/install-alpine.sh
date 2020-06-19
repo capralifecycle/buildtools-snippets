@@ -2,7 +2,7 @@
 set -eux
 
 # See check-updates.sh.
-SONAR_SCANNER_VERSION=4.2.0.1873
+SONAR_SCANNER_VERSION=4.3.0.2102
 
 echo "########################################################################"
 echo "##                                                                    ##"
