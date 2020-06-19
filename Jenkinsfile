@@ -9,7 +9,15 @@ def tests = [
   'tools/sonar-scanner/install.test.Dockerfile',
 ]
 
-def jobProperties = []
+def jobProperties = [
+  parameters([
+    booleanParam(
+      defaultValue: false,
+      description: 'Force build without Docker cache',
+      name: 'docker_skip_cache'
+    ),
+  ]),
+]
 
 // Get correct branch name for PRs.
 def branch = env.CHANGE_BRANCH ?: env.BRANCH_NAME
@@ -28,13 +36,18 @@ buildConfig([
     teamDomain: 'cals-capra',
   ],
 ]) {
+  def dockerArgs = ""
+  if (params.docker_skip_cache) {
+    dockerArgs = " --no-cache"
+  }
+
   // Plan parallel steps
   def branches = [:]
   tests.each { dockerfile ->
     branches[dockerfile] = {
       dockerNode {
         checkout scm
-        sh "docker build --no-cache --build-arg BRANCH=\"$branch\" -f $dockerfile ."
+        sh "docker build$dockerArgs --build-arg BRANCH=\"$branch\" -f $dockerfile ."
       }
     }
   }
