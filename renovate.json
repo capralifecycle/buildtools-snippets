@@ -1,4 +1,8 @@
 {
   "extends": ["github>capraconsulting/renovate-config:default"],
-  "masterIssueApproval": true
+  "pinDigests": true,
+  "digest": {
+    "automerge": true,
+    "automergeType": "branch"
+  }
 }
