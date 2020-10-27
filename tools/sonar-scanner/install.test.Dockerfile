@@ -15,7 +15,7 @@ RUN /install.sh
 RUN sonar-scanner --version
 
 # Using the provided script.
-FROM openjdk:8-jre@sha256:13a8385cc52863ab88e37508dc8fd7af27d265b1facd139051e1fbe3d63e2c65
+FROM openjdk:8-jre@sha256:6a53b55da7eec7418451cfd373328e3d8c893bf566cb9f5e30188606b693e72b
 COPY tools/sonar-scanner/install.sh /install.sh
 RUN /install.sh
 RUN sonar-scanner --version
