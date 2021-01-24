@@ -6,6 +6,7 @@
 def tests = [
   'tools/docker/install.test.Dockerfile',
   'tools/maven-3/install.test.Dockerfile',
+  'tools/node/install.test.Dockerfile',
   'tools/sonar-scanner/install.test.Dockerfile',
 ]
 
