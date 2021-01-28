@@ -3,7 +3,7 @@ set -eux
 
 # inspired by https://github.com/nodejs/docker-node/blob/ad676318f09f9dee821ac6704340000d75fe31bc/14/buster-slim/Dockerfile
 
-# renovate: datasource=github-releases depName=nodejs/node
+# renovate: datasource=github-releases depName=nodejs/node versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)(?:\.(?<patch>\d+))?$
 NODE_VERSION=14.15.4
 
 apt-get update
