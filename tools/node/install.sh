@@ -4,7 +4,7 @@ set -eux
 # inspired by https://github.com/nodejs/docker-node/blob/ad676318f09f9dee821ac6704340000d75fe31bc/14/buster-slim/Dockerfile
 
 # renovate: datasource=github-releases depName=nodejs/node
-NODE_VERSION=14.15.4
+NODE_VERSION=v15.7.0
 
 apt-get update
 apt-get install -y --no-install-recommends \
