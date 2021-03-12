@@ -5,7 +5,7 @@ RUN /install.sh
 RUN docker --version
 
 # Using the provided script.
-FROM debian:sid@sha256:4ae5284ee9adbb10397cbc5343aaaafa34ff9f58f6d5c51589d3ba41ddcae4df
+FROM debian:sid@sha256:25c694c910133d939a29d3b59efefe7dea33b16e3381ca738bea1478d528e6cc
 RUN set -ex; \
     apt-get update; \
     apt-get install -y wget; \
