@@ -15,7 +15,7 @@ RUN /install.sh
 RUN sonar-scanner --version
 
 # Using the provided script.
-FROM azul/zulu-openjdk-alpine:11-jre@sha256:48895b114dcf4bcb8ccbc72b9ae032f7fc67c4c6aa6251fb529d48d46221eda3
+FROM azul/zulu-openjdk-alpine:11-jre@sha256:0ba1ac6faedc19d2116d6a45880bdf5d0fb7fdbeb543c25549a65444f2f6516e
 COPY tools/sonar-scanner/install.sh /install.sh
 RUN /install.sh
 RUN sonar-scanner --version
