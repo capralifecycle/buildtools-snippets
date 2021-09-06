@@ -1,5 +1,5 @@
 # Using the provided script.
-FROM azul/zulu-openjdk-alpine:11@sha256:a9a27719c1cfce9fcb13997e9cfd13bf41b8eee364ab07d19d9c8e396a94206e
+FROM azul/zulu-openjdk-alpine:11@sha256:b003cb8c77b54b64c69e199ed6ad4e833d9967389d6574001c260513b87b9d9e
 COPY tools/maven-3/install.sh /install.sh
 RUN /install.sh
 ENV MAVEN_HOME /usr/share/maven
@@ -21,7 +21,7 @@ RUN mvn -version
 # Ensuring the direct url works.
 # Tip: Copy the ENV and RUN command to another Dockerfile to include it,
 # but change ${BRANCH} to master.
-FROM azul/zulu-openjdk-alpine:11@sha256:a9a27719c1cfce9fcb13997e9cfd13bf41b8eee364ab07d19d9c8e396a94206e
+FROM azul/zulu-openjdk-alpine:11@sha256:b003cb8c77b54b64c69e199ed6ad4e833d9967389d6574001c260513b87b9d9e
 ARG BRANCH
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "/home/jenkins/.m2"
