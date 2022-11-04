@@ -7,7 +7,7 @@ ENV MAVEN_CONFIG "/home/jenkins/.m2"
 RUN mvn -version
 
 # Using the provided script.
-FROM azul/zulu-openjdk-debian:11@sha256:22f0283ff6dc144b67554ac9f6a47648fe370bd7d2064a92b70e357976d5723a
+FROM azul/zulu-openjdk-debian:11@sha256:31134185b1e1cb3138478ad6373d15ea1812428787f8edc9c312cbcdf1357c46
 RUN set -ex; \
     apt-get update; \
     apt-get install -y wget; \
