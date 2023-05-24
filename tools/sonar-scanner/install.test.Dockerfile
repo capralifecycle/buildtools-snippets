@@ -5,7 +5,7 @@ RUN /install.sh
 RUN sonar-scanner --version
 
 # Using the provided script.
-FROM debian:sid@sha256:26ee6974b41d96c0fab30d66227dcc000d4b05c1ea453dcc91dcc862e94730d0
+FROM debian:sid@sha256:23f9f2b9b22f1a4234310897c06351ae4d5838529fbcb2843d2721b0ccfb686d
 RUN set -ex; \
     apt-get update; \
     apt-get install -y unzip wget; \
