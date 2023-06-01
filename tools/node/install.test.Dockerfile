@@ -1,5 +1,5 @@
 # Using the provided script.
-FROM azul/zulu-openjdk-debian:11@sha256:8cd3edd1b098dc2fac85ae07f4992b36e9080edc7e4f8c89ef2225858e40f182
+FROM azul/zulu-openjdk-debian:11@sha256:d7ddf62f2ec3ab10bdceb2e36efe67afda753e22765eba58aedd5161b61edad6
 COPY tools/node/install.sh /install.sh
 RUN /install.sh
 RUN node --version
@@ -8,7 +8,7 @@ RUN npm --version
 # Ensuring the direct url works.
 # Tip: Copy RUN command to another Dockerfile to include it,
 # but change ${BRANCH} to master.
-FROM azul/zulu-openjdk-debian:11@sha256:8cd3edd1b098dc2fac85ae07f4992b36e9080edc7e4f8c89ef2225858e40f182
+FROM azul/zulu-openjdk-debian:11@sha256:d7ddf62f2ec3ab10bdceb2e36efe67afda753e22765eba58aedd5161b61edad6
 ARG BRANCH
 RUN set -ex; \
     apt-get update; \
