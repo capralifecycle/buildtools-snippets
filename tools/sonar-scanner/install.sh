@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eux
 
-# renovate: datasource=github-releases depName=SonarSource/sonar-scanner-cli versioningTemplate=maven
+# renovate: datasource=github-releases depName=SonarSource/sonar-scanner-cli versioning=maven
 SONAR_SCANNER_VERSION=4.6.1.2450
 
 if [ -e /etc/alpine-release ]; then
