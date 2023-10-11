@@ -28,7 +28,7 @@ wget -O /opt/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/son
 wget -O /opt/sonar-scanner.asc https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip.asc
 wget -O /opt/sonar-scanner.sha256 https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip.sha256
 gpg --verify /opt/sonar-scanner.asc /opt/sonar-scanner.zip
-echo "$(cat /opt/sonar-scanner.sha256)  /opt/sonar-scanner.zip" | sha256sum -c
+echo "$(cat /opt/sonar-scanner.sha256)  /opt/sonar-scanner.zip" | sha256sum -c -
 unzip /opt/sonar-scanner.zip -d /opt
 rm /opt/sonar-scanner.zip
 rm /opt/sonar-scanner.asc
