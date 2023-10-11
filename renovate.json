@@ -9,7 +9,7 @@
     {
       "fileMatch": ["/install\\.sh$"],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?( versioningTemplate=(?<versioningTemplate>.*?))?\\s.*?_VERSION=(?<currentValue>.*)\\s"
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s.*?_VERSION=(?<currentValue>.*)\\s"
       ]
     }
   ]
