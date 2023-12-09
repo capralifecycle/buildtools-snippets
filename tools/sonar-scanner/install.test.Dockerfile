@@ -1,5 +1,5 @@
 # Using the provided script.
-FROM alpine@sha256:34871e7290500828b39e22294660bee86d966bc0017544e848dd9a255cdf59e0
+FROM alpine@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48
 COPY tools/sonar-scanner/install.sh /install.sh
 RUN apk add --no-cache gnupg
 RUN /install.sh
@@ -25,7 +25,7 @@ RUN sonar-scanner --version
 # Ensuring the direct url works.
 # Tip: Copy the RUN command to another Dockerfile to include it,
 # but change ${BRANCH} to master.
-FROM alpine@sha256:34871e7290500828b39e22294660bee86d966bc0017544e848dd9a255cdf59e0
+FROM alpine@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48
 ARG BRANCH
 RUN apk add --no-cache gnupg
 RUN set -ex; \
