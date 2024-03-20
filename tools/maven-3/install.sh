@@ -7,7 +7,7 @@ set -eux
 
 # renovate: datasource=github-releases depName=apache/maven extractVersion=^maven-(?<version>.*)$
 MAVEN_VERSION=3.9.6
-SHA=4810523ba025104106567d8a15a8aa19db35068c8c8be19e30b219a1d7e83bcab96124bf86dc424b1cd3c5edba25d69ec0b31751c136f88975d15406cab3842b
+SHA=706f01b20dec0305a822ab614d51f32b07ee11d0218175e55450242e49d2156386483b506b3a4e8a03ac8611bae96395fd5eec15f50d3013d5deed6d1ee18224
 # NOTE: We previously used https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries as the URL,
 # but only the two latest minor versions are available there
 BASE_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries
