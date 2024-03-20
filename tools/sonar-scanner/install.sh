@@ -2,7 +2,7 @@
 set -eux
 
 # renovate: datasource=github-releases depName=SonarSource/sonar-scanner-cli versioning=maven
-SONAR_SCANNER_VERSION=4.8.1.3023
+SONAR_SCANNER_VERSION=5.0.1.3006
 
 if [ -e /etc/alpine-release ]; then
   # Alpine cannot use the bundled java version, so we install java if not available.
