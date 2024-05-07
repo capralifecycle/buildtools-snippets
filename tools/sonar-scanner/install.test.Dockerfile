@@ -16,7 +16,7 @@ RUN /install.sh
 RUN sonar-scanner --version
 
 # Using the provided script.
-FROM azul/zulu-openjdk-alpine:11.0.22-jre@sha256:7e567fa7b027a350ad60b4d104f129acc5df41a1a9db4cf99dd6aac48137fd41
+FROM azul/zulu-openjdk-alpine:11.0.23-jre@sha256:1062a0c40c6a25c03da6b46b5da2ca31d9318ac36ac06ffd2885e16a3edf0188
 COPY tools/sonar-scanner/install.sh /install.sh
 RUN apk add --no-cache gnupg
 RUN /install.sh
